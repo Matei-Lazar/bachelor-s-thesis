@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "352487287528",
+    "firebase_url": "https://kariru-31d8d.firebaseio.com",
+    "project_id": "kariru-31d8d",
+    "storage_bucket": "kariru-31d8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352487287528:android:e291cb14b3d22dcb40375d",
+        "android_client_info": {
+          "package_name": "ths.kariru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352487287528-atqpbvcnn5n0s4l3qh4ajbjd8cciei17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ths.kariru",
+            "certificate_hash": "9c89116a2d4892914b580bce2851af3ed2bc9549"
+          }
+        },
+        {
+          "client_id": "352487287528-1kg6lqgc603noi9ogk1m9hm1qg4j5olg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKZHboPTdqsbwovrqr278YZnhBWWCprA4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352487287528-1kg6lqgc603noi9ogk1m9hm1qg4j5olg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
