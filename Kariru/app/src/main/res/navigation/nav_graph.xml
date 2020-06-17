@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/destination_search">
+
+    <fragment
+        android:id="@+id/destination_search"
+        android:name="ths.kariru.fragments.search_fragment.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search"/>
+    <fragment
+        android:id="@+id/destination_add"
+        android:name="ths.kariru.fragments.add_fragment.AddFragment"
+        android:label="AddFragment"
+        tools:layout="@layout/fragment_add"/>
+    <fragment
+        android:id="@+id/destination_chat"
+        android:name="ths.kariru.fragments.chat_fragment.ChatFragment"
+        android:label="ChatFragment"
+        tools:layout="@layout/fragment_chat"/>
+    <fragment
+        android:id="@+id/destination_profile"
+        android:name="ths.kariru.fragments.profile_fragment.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile"/>
+</navigation>
