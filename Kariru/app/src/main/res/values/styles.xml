@@ -11,6 +11,7 @@
     <style name="SigninTheme" parent="FirebaseUI">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="verticalOffset">40dp</item>
     </style>
 
 </resources>
