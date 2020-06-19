@@ -9,7 +9,7 @@ class SearchFragmentViewModel : ViewModel() {
         Timber.i("SearchFragmentViewModel created")
     }
 
-    var text = "Search boiii"
+    var text = "Search"
 
     override fun onCleared() {
         super.onCleared()

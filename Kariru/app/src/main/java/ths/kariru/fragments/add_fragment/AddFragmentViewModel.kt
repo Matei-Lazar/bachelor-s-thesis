@@ -4,5 +4,5 @@ import androidx.lifecycle.ViewModel
 
 class AddFragmentViewModel :ViewModel() {
 
-    var text = "Add boii"
+    var text = "Add"
 }

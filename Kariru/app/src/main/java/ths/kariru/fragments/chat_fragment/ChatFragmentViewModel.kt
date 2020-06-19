@@ -4,5 +4,5 @@ import androidx.lifecycle.ViewModel
 
 class ChatFragmentViewModel : ViewModel() {
 
-    val text = "Yee boii"
+    val text = "Chat"
 }
