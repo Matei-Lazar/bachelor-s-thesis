@@ -1,4 +1,4 @@
-package ths.kariru.fragments.search_fragment
+package ths.kariru.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

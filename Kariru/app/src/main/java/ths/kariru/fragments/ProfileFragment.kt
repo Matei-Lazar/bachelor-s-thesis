@@ -1,4 +1,4 @@
-package ths.kariru.fragments.profile_fragment
+package ths.kariru.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import ths.kariru.R
 import ths.kariru.databinding.FragmentProfileBinding
-import ths.kariru.fragments.search_fragment.SearchFragmentViewModel
 import ths.kariru.utils.SettingsActivity
+import ths.kariru.viewmodels.ProfileFragmentViewModel
 
 class ProfileFragment : Fragment() {
 

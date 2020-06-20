@@ -1,4 +1,4 @@
-package ths.kariru.fragments.search_fragment
+package ths.kariru.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import ths.kariru.R
 import ths.kariru.databinding.FragmentSearchBinding
+import ths.kariru.viewmodels.SearchFragmentViewModel
 import timber.log.Timber
 
 class SearchFragment : Fragment() {

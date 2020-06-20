@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/destination_search"
-        android:name="ths.kariru.fragments.search_fragment.SearchFragment"
+        android:name="ths.kariru.fragments.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search"/>
     <fragment
         android:id="@+id/destination_add"
-        android:name="ths.kariru.fragments.add_fragment.AddFragment"
+        android:name="ths.kariru.fragments.AddFragment"
         android:label="AddFragment"
         tools:layout="@layout/fragment_add"/>
     <fragment
         android:id="@+id/destination_chat"
-        android:name="ths.kariru.fragments.chat_fragment.ChatFragment"
+        android:name="ths.kariru.fragments.ChatFragment"
         android:label="ChatFragment"
         tools:layout="@layout/fragment_chat"/>
     <fragment
         android:id="@+id/destination_profile"
-        android:name="ths.kariru.fragments.profile_fragment.ProfileFragment"
+        android:name="ths.kariru.fragments.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
 </navigation>

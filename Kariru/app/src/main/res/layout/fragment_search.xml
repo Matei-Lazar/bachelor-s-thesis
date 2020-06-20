@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ths.kariru.fragments.search_fragment.SearchFragmentViewModel" />
+            type="ths.kariru.viewmodels.SearchFragmentViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

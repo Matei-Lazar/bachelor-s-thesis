@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ths.kariru.fragments.profile_fragment.ProfileFragmentViewModel" />
+            type="ths.kariru.viewmodels.ProfileFragmentViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

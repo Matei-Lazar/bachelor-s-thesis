@@ -1,4 +1,4 @@
-package ths.kariru.fragments.profile_fragment
+package ths.kariru.viewmodels
 
 import android.content.Intent
 import android.view.View

@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="ths.kariru.fragments.chat_fragment.ChatFragmentViewModel" />
+            type="ths.kariru.viewmodels.ChatFragmentViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

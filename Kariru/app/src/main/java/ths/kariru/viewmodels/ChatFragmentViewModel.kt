@@ -1,4 +1,4 @@
-package ths.kariru.fragments.chat_fragment
+package ths.kariru.viewmodels
 
 import androidx.lifecycle.ViewModel
 
