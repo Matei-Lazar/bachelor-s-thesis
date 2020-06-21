@@ -24,15 +24,27 @@ class AddFragmentViewModel :ViewModel() {
 
 
 
-    private fun saveProperty(property: Property) = CoroutineScope(Dispatchers.IO).launch {
+    private fun savePropertyToFirestore(property: Property) = CoroutineScope(Dispatchers.IO).launch {
         try {
             propertyCollectionRef.add(property).await()
-
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
-                //Toast.makeText(this@AddFragmentViewModel, e.message, Toast.LENGTH_LONG).show()
                 Timber.i("$e")
             }
         }
     }
+
+    fun saveProperty(property: Property) {
+        propertyCollectionRef
+            .document()
+            .set(property)
+            .addOnSuccessListener {
+                Timber.i("property saved in firestore")
+            }
+            .addOnFailureListener {
+                Timber.i("saved to fail property: $it")
+            }
+    }
+
+
 }
