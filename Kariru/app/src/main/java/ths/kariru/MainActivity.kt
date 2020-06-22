@@ -1,6 +1,7 @@
 package ths.kariru
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,9 +13,13 @@ import androidx.navigation.ui.NavigationUI
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
+import com.google.android.gms.common.api.GoogleApi
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import ths.kariru.databinding.ActivityMainBinding
+import ths.kariru.fragments.AddFragment
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -51,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 .setIsSmartLockEnabled(!BuildConfig.DEBUG, true)
                 .setTheme(R.style.SigninTheme)
                 .build(),
-            MainActivity.RC_SIGN_IN
+            RC_SIGN_IN
         )
     }
 
@@ -83,7 +88,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun isServicesOk(): Boolean {
+        Timber.i("isServicesOk: checking google services version")
+
+        val available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
+        if (available == ConnectionResult.SUCCESS) {
+            Timber.i("isServicesOk: google services is working")
+            return true
+        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
+            Timber.i("isServicesOk: an error occured but we can fix it")
+            val dialog: Dialog = GoogleApiAvailability.getInstance().getErrorDialog(this, available,
+                ERROR_DIALOG_REQUEST
+            )
+            dialog.show()
+        } else {
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show()
+        }
+        return false
+    }
+
     companion object {
         private const val RC_SIGN_IN = 1
+        private const val ERROR_DIALOG_REQUEST = 2
     }
 }

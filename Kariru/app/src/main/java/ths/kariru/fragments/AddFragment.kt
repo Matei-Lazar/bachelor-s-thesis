@@ -2,21 +2,22 @@ package ths.kariru.fragments
 
 import android.app.Activity
 import android.app.Activity.RESULT_OK
+import android.app.Dialog
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.core.app.ActivityCompat
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import kotlinx.android.synthetic.main.fragment_add.*
+import ths.kariru.MainActivity
 import ths.kariru.R
 import ths.kariru.adapters.AddViewPagerAdapter
 import ths.kariru.databinding.FragmentAddBinding
@@ -42,6 +43,8 @@ class AddFragment : Fragment() {
         images = arrayListOf()
         uploadPhotos(binding.addUploadButton)
 
+
+
         // Saves property to firestore
         binding.addSaveButton.setOnClickListener {
             saveProperty()
@@ -60,11 +63,7 @@ class AddFragment : Fragment() {
         viewModel.saveProperty(property)
     }
 
-    override fun onResume() {
-        super.onResume()
-        val adapter = AddViewPagerAdapter(images)
-        add_view_pager_rv.adapter = adapter
-    }
+
 
     private fun uploadPhotos(button: Button) {
         button.setOnClickListener {
@@ -75,6 +74,8 @@ class AddFragment : Fragment() {
             }
         }
     }
+
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -92,8 +93,14 @@ class AddFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        val adapter = AddViewPagerAdapter(images)
+        add_view_pager_rv.adapter = adapter
+    }
+
     companion object {
-        private const val IMAGE_GALLERY_REQUEST_CODE = 1
-        private const val PICK_MULTIPLE_IMAGES = 2
+        private const val PICK_MULTIPLE_IMAGES = 1
+
     }
 }

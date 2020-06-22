@@ -10,5 +10,7 @@ data class Property(
     var room: Int = 0,
     var bath: Int = 0,
     var balcony: Int = 0,
-    var surface: Int = 0
+    var surface: Int = 0,
+    var userId: String = "",
+    var propertyId: String = ""
 )
