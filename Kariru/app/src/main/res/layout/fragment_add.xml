@@ -1,152 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="ths.kariru.viewmodels.AddFragmentViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".AddFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/add_upload_property"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Upload Property"
-                android:textSize="24sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/add_address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Address"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_upload_property" />
-
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_street_text"
-                android:layout_width="252dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="Street name"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_address" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_streetNr_text"
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Street nr."
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_street_text"
-                app:layout_constraintTop_toBottomOf="@+id/add_address" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_blockName_text"
-                android:layout_width="252dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="Block name"
-                android:inputType="text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_street_text" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_apartmentNr_text"
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Apartment nr."
-                android:inputType="text"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_blockName_text"
-                app:layout_constraintTop_toBottomOf="@+id/add_street_text" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/add_view_pager_rv"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_upload_photos_text"
-                app:srcCompat="@drawable/ic_image_black" />
-
-            <Button
-                android:id="@+id/add_upload_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Upload"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_view_pager_rv" />
-
-            <TextView
-                android:id="@+id/add_upload_photos_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
-                android:text="Upload photos"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_blockName_text" />
-
-            <Button
-                android:id="@+id/add_save_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="save"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_upload_button" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="200dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_save_button" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
+        <Button
+            android:id="@+id/search_map_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -14,7 +14,7 @@
         android:id="@+id/destination_add"
         android:name="ths.kariru.fragments.AddFragment"
         android:label="AddFragment"
-        tools:layout="@layout/fragment_add"/>
+        tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/destination_chat"
         android:name="ths.kariru.fragments.ChatFragment"
@@ -25,4 +25,9 @@
         android:name="ths.kariru.fragments.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
+    <fragment
+        android:id="@+id/destination_add2"
+        android:name="ths.kariru.fragments.AddFragment2"
+        android:label="AddFragment2"
+        tools:layout="@layout/fragment_add2" />
 </navigation>

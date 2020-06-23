@@ -22,8 +22,6 @@ class AddFragmentViewModel :ViewModel() {
 
     private val propertyCollectionRef = Firebase.firestore.collection("properties")
 
-
-
     private fun savePropertyToFirestore(property: Property) = CoroutineScope(Dispatchers.IO).launch {
         try {
             propertyCollectionRef.add(property).await()

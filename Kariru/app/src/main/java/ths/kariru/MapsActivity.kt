@@ -50,19 +50,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         autocompleteFragment.setOnPlaceSelectedListener(placeSelectionListener)
     }
 
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         val clujLatLong = LatLng(46.7712, 23.6236)
-        val zoomLevel = 15f
+        val zoomLevel = 17f
         var firestore = FirebaseFirestore.getInstance()
 
         //map.addMarker(MarkerOptions().position(clujLatLong))
@@ -73,14 +64,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         get() = object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
 
-
                 val latitude: Double? = place.latLng?.latitude
                 val longitude: Double? = place.latLng?.longitude
                 val address = place.address
                 Timber.i("onPlaceSelected: address: $address, latitude: $latitude longitude: $longitude")
                 if (place.latLng != null) {
                     val coordinates = LatLng(place.latLng!!.latitude, place.latLng!!.longitude)
-                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 18f))
+                    map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 17f))
                     map.addMarker(MarkerOptions().position(coordinates))
                 }
 

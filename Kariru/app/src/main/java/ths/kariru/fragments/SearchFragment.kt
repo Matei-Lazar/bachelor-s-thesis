@@ -25,10 +25,10 @@ class SearchFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(SearchFragmentViewModel::class.java)
         binding.viewModel = viewModel
 
-        binding.searchMapButton.setOnClickListener {
-            val intent = Intent(context, MapsActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.searchMapButton.setOnClickListener {
+//            val intent = Intent(context, MapsActivity::class.java)
+//            startActivity(intent)
+//        }
 
         return binding.root
     }

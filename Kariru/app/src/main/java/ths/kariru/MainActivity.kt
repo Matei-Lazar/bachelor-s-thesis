@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 val user = FirebaseAuth.getInstance().currentUser
-                Timber.i("USERDATA: "+user?.displayName)
+                Timber.i("USERDATA: ${user?.displayName}")
             } else if (response == null) {
                 finish()
             } else if (response.error?.errorCode == ErrorCodes.NO_NETWORK) {
@@ -86,25 +86,6 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView?.let {
             NavigationUI.setupWithNavController(it, navController)
         }
-    }
-
-    fun isServicesOk(): Boolean {
-        Timber.i("isServicesOk: checking google services version")
-
-        val available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(this)
-        if (available == ConnectionResult.SUCCESS) {
-            Timber.i("isServicesOk: google services is working")
-            return true
-        } else if (GoogleApiAvailability.getInstance().isUserResolvableError(available)) {
-            Timber.i("isServicesOk: an error occured but we can fix it")
-            val dialog: Dialog = GoogleApiAvailability.getInstance().getErrorDialog(this, available,
-                ERROR_DIALOG_REQUEST
-            )
-            dialog.show()
-        } else {
-            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show()
-        }
-        return false
     }
 
     companion object {
