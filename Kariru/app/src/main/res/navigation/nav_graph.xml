@@ -14,7 +14,11 @@
         android:id="@+id/destination_add"
         android:name="ths.kariru.fragments.AddFragment"
         android:label="AddFragment"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/add_to_add2"
+            app:destination="@id/destination_add2" />
+    </fragment>
     <fragment
         android:id="@+id/destination_chat"
         android:name="ths.kariru.fragments.ChatFragment"
@@ -29,5 +33,22 @@
         android:id="@+id/destination_add2"
         android:name="ths.kariru.fragments.AddFragment2"
         android:label="AddFragment2"
-        tools:layout="@layout/fragment_add2" />
+        tools:layout="@layout/fragment_add2" >
+        <argument
+            android:name="streetName"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="streetNumber"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="latitude"
+            app:argType="string"
+            android:defaultValue='""' />
+        <argument
+            android:name="longitude"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>

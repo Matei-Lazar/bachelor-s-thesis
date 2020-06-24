@@ -12,5 +12,7 @@ data class Property(
     var balcony: Int = 0,
     var surface: Int = 0,
     var userId: String = "",
-    var propertyId: String = ""
+    var propertyId: String = "",
+    var latitude: String = "",
+    var longitude: String = ""
 )

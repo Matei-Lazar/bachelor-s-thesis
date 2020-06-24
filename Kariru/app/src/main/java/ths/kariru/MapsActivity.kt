@@ -1,7 +1,13 @@
 package ths.kariru
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.google.android.gms.common.api.Status
 
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -18,6 +24,7 @@ import com.google.android.libraries.places.api.net.PlacesClient
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener
 import com.google.firebase.firestore.FirebaseFirestore
+import ths.kariru.databinding.ActivityMapsBinding
 import timber.log.Timber
 import java.lang.reflect.Array
 import java.util.*
@@ -25,10 +32,15 @@ import java.util.*
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
+    private lateinit var binding: ActivityMapsBinding
+    private lateinit var streetName: String
+    private lateinit var streetNumber: String
+    private lateinit var coordinates: LatLng
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_maps)
 
         if (!Places.isInitialized()) {
             Places.initialize(applicationContext, "AIzaSyCLN3mCWd2uoO7zBW8LfiPCegwiwzPLPho")
@@ -48,6 +60,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         autocompleteFragment.setCountries("RO")
         autocompleteFragment.setPlaceFields(listOf(Place.Field.ADDRESS, Place.Field.LAT_LNG, Place.Field.ADDRESS_COMPONENTS))
         autocompleteFragment.setOnPlaceSelectedListener(placeSelectionListener)
+
+        binding.mapNextButton.setOnClickListener {
+            setResult(Activity.RESULT_OK,
+            Intent().putExtra("latitude", coordinates.latitude)
+                .putExtra("longitude", coordinates.longitude)
+                .putExtra("streetName", streetName)
+                .putExtra("streetNumber", streetNumber))
+            finish()
+            Timber.i("intent: streetNumber: $streetNumber")
+        }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -63,17 +85,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val placeSelectionListener: PlaceSelectionListener
         get() = object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
-
-                val latitude: Double? = place.latLng?.latitude
-                val longitude: Double? = place.latLng?.longitude
-                val address = place.address
-                Timber.i("onPlaceSelected: address: $address, latitude: $latitude longitude: $longitude")
+                if (place.addressComponents != null) {
+                    val latitude: Double? = place.latLng?.latitude
+                    val longitude: Double? = place.latLng?.longitude
+                    streetName = place.addressComponents!!.asList()[1].name
+                    streetNumber = place.addressComponents!!.asList()[0].name
+                    Timber.i("onPlaceSelected: ${place.addressComponents}")
+                }
                 if (place.latLng != null) {
-                    val coordinates = LatLng(place.latLng!!.latitude, place.latLng!!.longitude)
+                    coordinates = LatLng(place.latLng!!.latitude, place.latLng!!.longitude)
                     map.animateCamera(CameraUpdateFactory.newLatLngZoom(coordinates, 17f))
                     map.addMarker(MarkerOptions().position(coordinates))
                 }
-
+                binding.mapNextButton.visibility = View.VISIBLE
             }
 
             override fun onError(status: Status) {

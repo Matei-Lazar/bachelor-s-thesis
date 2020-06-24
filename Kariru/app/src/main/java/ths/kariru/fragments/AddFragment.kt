@@ -14,6 +14,9 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import kotlinx.android.synthetic.main.fragment_add.*
@@ -30,6 +33,7 @@ import timber.log.Timber
 class AddFragment : Fragment() {
 
     private lateinit var viewModel: AddFragmentViewModel
+    private lateinit var navController: NavController
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -41,9 +45,36 @@ class AddFragment : Fragment() {
 
         binding.searchMapButton.setOnClickListener {
             val intent = Intent(context, MapsActivity::class.java)
-            startActivity(intent)
+            startActivityForResult(intent, REQUEST_PROPERTY_COORDINATES)
         }
 
+        navController = findNavController()
+
         return binding.root
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQUEST_PROPERTY_COORDINATES && resultCode == RESULT_OK && data != null) {
+            val latitude = data.getDoubleExtra("latitude", 0.0)
+            val longitude = data.getDoubleExtra("longitude", 0.0)
+            var streetName = data.getStringExtra("streetName")
+            var streetNumber = data.getStringExtra("streetNumber")
+
+            if (streetName == null) streetName = ""
+            if (streetNumber == null) streetNumber = ""
+
+            val action = AddFragmentDirections.addToAdd2(
+                latitude = latitude.toString(),
+                longitude = longitude.toString(),
+                streetName = streetName,
+                streetNumber = streetNumber
+            )
+            navController.navigate(action)
+        }
+    }
+
+    companion object {
+        private const val REQUEST_PROPERTY_COORDINATES = 4
     }
 }

@@ -11,25 +11,33 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.fragment_add.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.fragment_add2.*
 
 import ths.kariru.R
 import ths.kariru.adapters.AddViewPagerAdapter
 import ths.kariru.databinding.FragmentAdd2Binding
-import ths.kariru.databinding.FragmentAddBinding
 import ths.kariru.models.Address
+import ths.kariru.models.Image
 import ths.kariru.models.Property
 import ths.kariru.viewmodels.AddFragmentViewModel
 
 class AddFragment2 : Fragment() {
 
     private lateinit var viewModel: AddFragmentViewModel
+    private lateinit var binding: FragmentAdd2Binding
+
     private var images: MutableList<Uri> = arrayListOf()
+
+    // Firebase
+    private val user = FirebaseAuth.getInstance().currentUser
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding: FragmentAdd2Binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add2, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add2, container, false)
 
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this).get(AddFragmentViewModel::class.java)
@@ -42,19 +50,43 @@ class AddFragment2 : Fragment() {
         // Saves property to firestore
         binding.add2SaveButton.setOnClickListener {
             saveProperty()
+            //uploadImagesToStorage("images")
         }
 
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        arguments?.let {
+            val safeArgs = AddFragment2Args.fromBundle(it)
+            binding.add2StreetText.setText(safeArgs.streetName)
+            binding.add2StreetNrText.setText(safeArgs.streetNumber)
+        }
+    }
+
     private fun saveProperty() {
-        val street = add_street_text.text.toString()
-        val streetNumber = add_streetNr_text.text.toString().toInt()
-        val blockName = add_blockName_text.text.toString()
-        val apartmentNumber = add_apartmentNr_text.text.toString().toInt()
+
+        user ?: return // if we don't have a populated user, we return
+        var latitude = ""
+        var longitude = ""
+
+        // Address
+        val street = add2_street_text.text.toString()
+        val streetNumber = binding.add2StreetNrText.text.toString()
+        val blockName = binding.add2BlockNameText.text.toString()
+        val apartmentNumber = binding.add2ApartmentNrText.text.toString().toInt()
         val address = Address(street, streetNumber, blockName, apartmentNumber)
-        val property = Property(address)
-        viewModel.saveProperty(property)
+
+        arguments?.let {
+            val safeArgs = AddFragment2Args.fromBundle(it)
+            latitude = safeArgs.latitude
+            longitude = safeArgs.longitude
+        }
+
+        val property = Property(address, latitude = latitude, longitude = longitude)
+        viewModel.savePropertyToFirestore(property, user, images)
     }
 
     private fun uploadPhotos(button: Button) {
@@ -67,6 +99,8 @@ class AddFragment2 : Fragment() {
         }
     }
 
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -77,6 +111,12 @@ class AddFragment2 : Fragment() {
                         val uri = clipData.getItemAt(i).uri
                         images.add(uri)
                     }
+                } else {
+                    data?.data.let {
+                        if (it != null) {
+                            images.add(it)
+                        }
+                    }
                 }
             }
         }
@@ -85,7 +125,7 @@ class AddFragment2 : Fragment() {
     override fun onResume() {
         super.onResume()
         val adapter = AddViewPagerAdapter(images)
-        add_view_pager_rv.adapter = adapter
+        add2_view_pager_rv.adapter = adapter
     }
 
     companion object {

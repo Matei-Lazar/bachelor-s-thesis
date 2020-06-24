@@ -21,7 +21,27 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/add_upload_property"
+                android:id="@+id/add2_latitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/add2_longitude"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/add2_upload_property"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -32,7 +52,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/add_address"
+                android:id="@+id/add2_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -40,11 +60,11 @@
                 android:text="Address"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_upload_property" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_upload_property" />
 
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_street_text"
+                android:id="@+id/add2_street_text"
                 android:layout_width="252dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="16dp"
@@ -52,10 +72,10 @@
                 android:hint="Street name"
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_address" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_address" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_streetNr_text"
+                android:id="@+id/add2_streetNr_text"
                 android:layout_width="125dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="16dp"
@@ -64,11 +84,11 @@
                 android:hint="Street nr."
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_street_text"
-                app:layout_constraintTop_toBottomOf="@+id/add_address" />
+                app:layout_constraintStart_toEndOf="@+id/add2_street_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_address" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_blockName_text"
+                android:id="@+id/add2_blockName_text"
                 android:layout_width="252dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="16dp"
@@ -76,10 +96,10 @@
                 android:hint="Block name"
                 android:inputType="text"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_street_text" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_street_text" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/add_apartmentNr_text"
+                android:id="@+id/add2_apartmentNr_text"
                 android:layout_width="125dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="16dp"
@@ -88,11 +108,11 @@
                 android:hint="Apartment nr."
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_blockName_text"
-                app:layout_constraintTop_toBottomOf="@+id/add_street_text" />
+                app:layout_constraintStart_toEndOf="@+id/add2_blockName_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_street_text" />
 
             <TextView
-                android:id="@+id/add_upload_photos_text"
+                android:id="@+id/add2_upload_photos_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -100,10 +120,10 @@
                 android:text="Upload photos"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_blockName_text" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_blockName_text" />
 
             <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/add_view_pager_rv"
+                android:id="@+id/add2_view_pager_rv"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginStart="16dp"
@@ -113,7 +133,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_upload_photos_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_upload_photos_text"
                 app:srcCompat="@drawable/ic_image_black" />
 
             <Button
@@ -125,7 +145,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add_view_pager_rv" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_view_pager_rv" />
 
             <Button
                 android:id="@+id/add2_save_button"
