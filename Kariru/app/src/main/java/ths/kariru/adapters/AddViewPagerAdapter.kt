@@ -11,8 +11,9 @@ import kotlinx.android.synthetic.main.add_view_pager.view.*
 import ths.kariru.R
 
 class AddViewPagerAdapter (
-    val images: MutableList<Uri>
+    private val images: MutableList<Uri>
 ) : RecyclerView.Adapter<AddViewPagerAdapter.ViewPagerViewHolder>() {
+
     inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
@@ -27,5 +28,10 @@ class AddViewPagerAdapter (
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         val currentImage = images[position]
         holder.itemView.add_image_view_pager.setImageURI(currentImage)
+    }
+
+    fun removeItem(viewHolder: RecyclerView.ViewHolder) {
+        images.removeAt(viewHolder.bindingAdapterPosition)
+        notifyItemRemoved(viewHolder.bindingAdapterPosition)
     }
 }

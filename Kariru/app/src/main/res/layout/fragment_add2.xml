@@ -47,7 +47,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Upload Property"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -58,112 +58,300 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Address"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add2_upload_property" />
 
-
-            <com.google.android.material.textfield.TextInputEditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add2_street_text"
-                android:layout_width="252dp"
-                android:layout_height="42dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:hint="Street name"
-                android:inputType="text"
+                app:errorEnabled="true"
+                app:counterEnabled="true"
+                app:counterMaxLength="40"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_address" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_address">
 
-            <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="Street name"
+                    android:inputType="text"
+                    android:maxLength="40" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add2_streetNr_text"
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:hint="Street nr."
-                android:inputType="text"
+                app:errorEnabled="true"
+                app:counterMaxLength="4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/add2_street_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_address" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_address">
 
-            <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="Street nr."
+                    android:maxLength="4"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add2_blockName_text"
-                android:layout_width="252dp"
-                android:layout_height="42dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:hint="Block name"
-                android:inputType="text"
+                android:layout_marginTop="8dp"
+                app:errorEnabled="true"
+                app:counterMaxLength="20"
+                app:counterEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_street_text" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_street_text">
 
-            <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="Block name"
+                    android:maxLength="20"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add2_apartmentNr_text"
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:hint="Apartment nr."
-                android:inputType="text"
+                app:errorEnabled="true"
+                app:counterMaxLength="3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/add2_blockName_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_street_text" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_street_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="125dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="Apartment nr."
+                    android:maxLength="3"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/add2_upload_photos_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="16dp"
                 android:text="Upload photos"
-                android:textSize="20sp"
+                android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add2_blockName_text" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/add2_view_pager_rv"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/add2_recyclerview"
                 android:layout_width="match_parent"
+
                 android:layout_height="200dp"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_upload_photos_text"
-                app:srcCompat="@drawable/ic_image_black" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_upload_photos_text" />
+
+            <!--            <androidx.viewpager2.widget.ViewPager2-->
+            <!--                android:id="@+id/add2_view_pager_rv"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="200dp"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:scaleType="fitXY"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="1.0"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="parent"-->
+            <!--                app:srcCompat="@drawable/ic_image_black" />-->
 
             <Button
                 android:id="@+id/add2_upload_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Upload"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.501"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_view_pager_rv" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_recyclerview" />
+
+            <Button
+                android:id="@+id/add2_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_recyclerview" />
+
+            <TextView
+                android:id="@+id/add2_details_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Details"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_upload_button" />
+
+            <TextView
+                android:id="@+id/add2_floor_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Floor"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_details_text" />
+
+            <Spinner
+                android:id="@+id/add2_floor_spinner"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add2_floor_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_details_text" />
+
+            <TextView
+                android:id="@+id/add2_rooms_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Rooms"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_floor_text" />
+
+            <Spinner
+                android:id="@+id/add2_rooms_spinner"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add2_rooms_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_floor_text" />
+
+            <TextView
+                android:id="@+id/add2_baths_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Baths"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_rooms_text" />
+
+            <Spinner
+                android:id="@+id/add2_baths_spinner"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add2_baths_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_rooms_text" />
+
+            <TextView
+                android:id="@+id/add2_balconies_text"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Balconies"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_baths_text" />
+
+            <Spinner
+                android:id="@+id/add2_balconies_spinner"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/add2_balconies_text"
+                app:layout_constraintTop_toBottomOf="@+id/add2_baths_text" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add2_surface_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                app:errorEnabled="true"
+                app:counterMaxLength="5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add2_balconies_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:drawableEnd="@drawable/ic_square_meter"
+                    android:hint="Surface"
+                    android:maxLength="5"
+                    android:inputType="number"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add2_description_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintTop_toBottomOf="@+id/add2_surface_text">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#fff"
+                    android:hint="Description"
+                    android:inputType="textMultiLine"
+                    android:maxLength="200" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/add2_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="600dp"
                 android:text="save"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_upload_button" />
+                app:layout_constraintTop_toBottomOf="@+id/add2_recyclerview" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="125dp"
-                android:layout_height="42dp"
-                android:layout_marginTop="200dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_save_button" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

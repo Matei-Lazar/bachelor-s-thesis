@@ -9,25 +9,36 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.HorizontalScrollView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.ViewPager2
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.fragment_add2.*
+import ths.kariru.MainActivity
 
 import ths.kariru.R
+import ths.kariru.adapters.AddRecyclerViewAdapter
 import ths.kariru.adapters.AddViewPagerAdapter
 import ths.kariru.databinding.FragmentAdd2Binding
 import ths.kariru.models.Address
 import ths.kariru.models.Image
 import ths.kariru.models.Property
 import ths.kariru.viewmodels.AddFragmentViewModel
+import java.util.*
 
 class AddFragment2 : Fragment() {
 
     private lateinit var viewModel: AddFragmentViewModel
     private lateinit var binding: FragmentAdd2Binding
+    private lateinit var recyclerViewAdapter: AddRecyclerViewAdapter
 
     private var images: MutableList<Uri> = arrayListOf()
 
@@ -47,6 +58,19 @@ class AddFragment2 : Fragment() {
         images = arrayListOf()
         uploadPhotos(binding.add2UploadButton)
 
+        // RecyclerView
+        binding.apply {
+            add2Recyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            add2Recyclerview.setHasFixedSize(true)
+            recyclerViewAdapter = AddRecyclerViewAdapter(images)
+            add2Recyclerview.adapter = recyclerViewAdapter
+        }
+
+        binding.add2DeleteButton.setOnClickListener {
+            recyclerViewAdapter = AddRecyclerViewAdapter(images = arrayListOf())
+            binding.add2Recyclerview.adapter = recyclerViewAdapter
+        }
+
         // Saves property to firestore
         binding.add2SaveButton.setOnClickListener {
             saveProperty()
@@ -61,8 +85,8 @@ class AddFragment2 : Fragment() {
 
         arguments?.let {
             val safeArgs = AddFragment2Args.fromBundle(it)
-            binding.add2StreetText.setText(safeArgs.streetName)
-            binding.add2StreetNrText.setText(safeArgs.streetNumber)
+            binding.add2StreetText.editText?.setText(safeArgs.streetName)
+            binding.add2StreetNrText.editText?.setText(safeArgs.streetNumber)
         }
     }
 
@@ -73,10 +97,10 @@ class AddFragment2 : Fragment() {
         var longitude = ""
 
         // Address
-        val street = add2_street_text.text.toString()
-        val streetNumber = binding.add2StreetNrText.text.toString()
-        val blockName = binding.add2BlockNameText.text.toString()
-        val apartmentNumber = binding.add2ApartmentNrText.text.toString().toInt()
+        val street = add2_street_text.editText?.text.toString()
+        val streetNumber = binding.add2StreetNrText.editText?.text.toString()
+        val blockName = binding.add2BlockNameText.editText?.text.toString()
+        val apartmentNumber = binding.add2ApartmentNrText.editText?.text.toString().toInt()
         val address = Address(street, streetNumber, blockName, apartmentNumber)
 
         arguments?.let {
@@ -98,8 +122,6 @@ class AddFragment2 : Fragment() {
             }
         }
     }
-
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -124,13 +146,12 @@ class AddFragment2 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        val adapter = AddViewPagerAdapter(images)
-        add2_view_pager_rv.adapter = adapter
+        recyclerViewAdapter = AddRecyclerViewAdapter(images)
+        binding.add2Recyclerview.adapter = recyclerViewAdapter
     }
 
     companion object {
         private const val PICK_MULTIPLE_IMAGES = 1
 
     }
-
 }
