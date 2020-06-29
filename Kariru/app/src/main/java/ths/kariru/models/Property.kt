@@ -1,18 +1,20 @@
 package ths.kariru.models
 
 data class Property(
-    var address: Address, // checked
-    var photos: String = "", // checked
-    var description: String = "",
-    var type : String = "",
-    var floor: Int = 0,
-    var price: Int = 0,
-    var room: Int = 0,
-    var bath: Int = 0,
-    var balcony: Int = 0,
+    var address: Address = Address("", "", "", 0, ""),
+    var latitude: String = "",
+    var longitude: String = "",
+
+    var floor: String = "",
+    var room: String = "",
+    var bath: String = "",
+    var balcony: String = "",
+
     var surface: Int = 0,
+    var description: String = "",
+    var price: Int = 0,
+
     var userId: String = "",
     var propertyId: String = "",
-    var latitude: String = "",
-    var longitude: String = ""
+    var imageList: MutableList<String> = mutableListOf()
 )

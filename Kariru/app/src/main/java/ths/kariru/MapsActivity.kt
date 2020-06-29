@@ -86,8 +86,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         get() = object : PlaceSelectionListener {
             override fun onPlaceSelected(place: Place) {
                 if (place.addressComponents != null) {
-                    val latitude: Double? = place.latLng?.latitude
-                    val longitude: Double? = place.latLng?.longitude
                     streetName = place.addressComponents!!.asList()[1].name
                     streetNumber = place.addressComponents!!.asList()[0].name
                     Timber.i("onPlaceSelected: ${place.addressComponents}")

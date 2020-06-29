@@ -5,7 +5,13 @@ import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -81,6 +87,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+//    fun setupUI(view: View) {
+//        // Set up touch listener for non-text box views to hide keyboard
+//
+//        if (view !is EditText) {
+//            view.setOnTouchListener(object: View.OnTouchListener {
+//                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+//                    hideSoftKeyboard()
+//                    return false
+//                }
+//            })
+//        }
+//
+//        // If a layout container, iterate over children and seed recursion
+//        if (view is ViewGroup) {
+//            for (i in 0..view.childCount) {
+//                var innerView = view.getChildAt(i)
+//                setupUI(innerView)
+//            }
+//        }
+//    }
 
     private fun setupBottomNavMenu(navController: NavController) {
         bottomNavigationView?.let {

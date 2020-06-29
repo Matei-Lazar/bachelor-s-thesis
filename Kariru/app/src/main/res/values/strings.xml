@@ -1,10 +1,48 @@
 <resources>
     <string name="app_name">Kariru</string>
+
+<!--    Login and Google maps-->
     <string name="facebook_application_id" translatable="false">271614887514389</string>
     <string name="facebook_login_protocol_scheme" translatable="false">fb271614887514389</string>
     <string name="places_api_key">AIzaSyDKZHboPTdqsbwovrqr278YZnhBWWCprA4</string>
     <string name="title_activity_maps">Map</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+<!--    Spinner strings-->
+    <string-array name="floor_spinner">
+        <item>ground floor</item>
+        <item>basement</item>
+        <item>1</item><item>2</item><item>3</item><item>4</item><item>5</item><item>6</item>
+        <item>7</item><item>8</item><item>9</item><item>10</item><item>11</item><item>12</item>
+        <item>13</item><item>14</item><item>15</item><item>16</item><item>17</item><item>18</item>
+        <item>19</item><item>20</item><item>21</item><item>22</item><item>23</item><item>24</item>
+        <item>25</item>
+    </string-array>
+    <string-array name="rooms_spinner">
+        <item>1</item><item>2</item><item>3</item><item>4</item><item>5+</item>
+    </string-array>
+    <string-array name="baths_spinner">
+        <item>1</item><item>2</item><item>3</item><item>4+</item>
+    </string-array>
+    <string-array name="balconies_spinner">
+        <item>1</item><item>2</item><item>3+</item>
+    </string-array>
+
+<!--    EditText strings-->
+    <string-array name="neighborhood">
+        <item>Andrei Mureșanu</item><item>Becaș</item><item>Borhanci</item><item>Bulgaria</item>
+        <item>Bună Ziua</item><item>Centru</item><item>Dâmbul Rotund</item><item>Făget</item>
+        <item>Gara</item><item>Gheorgheni</item><item>Grădini Mănăștur</item><item>Grigorescu</item>
+        <item>Gruia</item><item>Iris</item><item>Între Lacuri</item><item>Lomb</item>
+        <item>Mănăștur</item><item>Mărăști</item><item>Pata-Rât</item><item>Someșeni</item>
+        <item>Sopor</item><item>Tineretului</item><item>Zorilor</item><item>Zorilor Sud</item>
+    </string-array>
+
+<!--    Card View strings-->
+    <string name="cluj_napoca" translatable="false">Cluj-Napoca, %s</string>
+    <string name="street" translatable="false">%s %s</string>
+    <string name="room">%s room</string>
+    <string name="rooms">%s rooms</string>
+    <string name="bath">%s bath</string>
+    <string name="baths">%s baths</string>
+    <string name="month">month</string>
 </resources>

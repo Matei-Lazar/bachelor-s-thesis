@@ -50,5 +50,8 @@
             android:name="longitude"
             app:argType="string"
             android:defaultValue='""' />
+        <action
+            android:id="@+id/add2_to_add"
+            app:destination="@id/destination_add" />
     </fragment>
 </navigation>
