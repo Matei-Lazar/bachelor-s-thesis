@@ -199,18 +199,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add2_upload_photos_text" />
 
-            <!--            <androidx.viewpager2.widget.ViewPager2-->
-            <!--                android:id="@+id/add2_view_pager"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="200dp"-->
-            <!--                android:layout_marginTop="16dp"-->
-            <!--                android:scaleType="fitXY"-->
-            <!--                app:layout_constraintEnd_toEndOf="parent"-->
-            <!--                app:layout_constraintHorizontal_bias="1.0"-->
-            <!--                app:layout_constraintStart_toStartOf="parent"-->
-            <!--                app:layout_constraintTop_toBottomOf="parent"-->
-            <!--                app:srcCompat="@drawable/ic_image_black" />-->
-
             <Button
                 android:id="@+id/add2_upload_button"
                 android:layout_width="wrap_content"
@@ -423,8 +411,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/add2_price_text" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

@@ -18,22 +18,10 @@ import timber.log.Timber
 
 class SearchFragmentViewModel : ViewModel() {
 
-
-
     private val propertyCollectionRef = Firebase.firestore.collection("properties")
 
     private var _properties = MutableLiveData<MutableList<Property>>()
     val properties: LiveData<MutableList<Property>> = _properties
-
-
-//    internal fun fetchProperties() {
-//        val propertyCollection = propertyCollectionRef
-//
-//        propertyCollection.addSnapshotListener { querySnapshot, firebaseFirestoreException ->
-//            val innerProperties = querySnapshot?.toObjects(Property::class.java)
-//            _properties.postValue(innerProperties)
-//        }
-//    }
 
     internal fun fetchProperties() = CoroutineScope(Dispatchers.IO).launch {
         try {

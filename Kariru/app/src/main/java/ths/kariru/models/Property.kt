@@ -1,5 +1,9 @@
 package ths.kariru.models
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Property(
     var address: Address = Address("", "", "", 0, ""),
     var latitude: String = "",
@@ -17,4 +21,4 @@ data class Property(
     var userId: String = "",
     var propertyId: String = "",
     var imageList: MutableList<String> = mutableListOf()
-)
+) : Parcelable

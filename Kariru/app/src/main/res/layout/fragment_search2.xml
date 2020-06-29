@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.SearchFragment2">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ths.kariru.viewmodels.SearchFragmentViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/search2_view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/search2_price"
+                android:layout_width="65dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="260dp"
+                android:layout_marginTop="10dp"
+                android:text="123"
+                android:textAlignment="textEnd"
+                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+
+            <ImageView
+                android:id="@+id/search2_euro_icon"
+                android:layout_width="28dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toEndOf="@+id/search2_price"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager"
+                app:srcCompat="@drawable/ic_euroro" />
+
+            <TextView
+                android:id="@+id/search2_month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="month"
+                android:textColor="@color/quantum_black_100"
+                app:layout_constraintStart_toEndOf="@+id/search2_euro_icon"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+
+            <TextView
+                android:id="@+id/search2_address_text_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:text="Address"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+
+            <TextView
+                android:id="@+id/search2_neighborhood"
+                android:layout_width="290dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Cartier"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_address_text_field" />
+
+            <TextView
+                android:id="@+id/search2_street"
+                android:layout_width="286dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Strada"
+                android:textAlignment="textStart"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_neighborhood" />
+
+
+            <TextView
+                android:id="@+id/search2_block_name"
+                android:layout_width="286dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Block name"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_street" />
+
+            <TextView
+                android:id="@+id/search2_apartment_nr"
+                android:layout_width="286dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="Apartment nr"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_block_name" />
+
+            <TextView
+                android:id="@+id/search2_details_text_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Details"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_apartment_nr" />
+
+            <TextView
+                android:id="@+id/search2_description"
+                android:layout_width="0dp"
+                android:layout_height="185dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Description"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_details_text_field" />
+
+            <TextView
+                android:id="@+id/search2_floor"
+                android:layout_width="245dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="floor"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_description" />
+
+            <TextView
+                android:id="@+id/search2_room"
+                android:layout_width="242dp"
+                android:layout_height="27dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="room"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_floor" />
+
+            <TextView
+                android:id="@+id/search2_bath"
+                android:layout_width="239dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="bath"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_room" />
+
+            <TextView
+                android:id="@+id/search2_balcony"
+                android:layout_width="243dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="balcony"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_bath" />
+
+            <TextView
+                android:id="@+id/search2_surface"
+                android:layout_width="248dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="surface"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_balcony" />
+
+            <TextView
+                android:id="@+id/search2_placeholder"
+                android:layout_width="234dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="800dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

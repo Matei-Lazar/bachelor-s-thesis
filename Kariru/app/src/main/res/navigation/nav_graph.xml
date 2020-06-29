@@ -9,7 +9,11 @@
         android:id="@+id/destination_search"
         android:name="ths.kariru.fragments.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/search_to_search2"
+            app:destination="@id/destination_search2" />
+    </fragment>
     <fragment
         android:id="@+id/destination_add"
         android:name="ths.kariru.fragments.AddFragment"
@@ -53,5 +57,16 @@
         <action
             android:id="@+id/add2_to_add"
             app:destination="@id/destination_add" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_search2"
+        android:name="ths.kariru.fragments.SearchFragment2"
+        android:label="SearchFragment2"
+        tools:layout="@layout/fragment_search2" >
+        <argument
+            android:name="propertyItem"
+            app:argType="ths.kariru.models.Property"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 </navigation>

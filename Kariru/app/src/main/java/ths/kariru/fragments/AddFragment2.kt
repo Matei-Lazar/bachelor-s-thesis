@@ -152,13 +152,6 @@ class AddFragment2 : Fragment() {
         }
     }
 
-    private fun cameraPhotos(button: Button) {
-        button.setOnClickListener {
-            val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-            startActivityForResult(intent, CAPTURE_IMAGE)
-        }
-    }
-
     private fun deletePhotos() {
         recyclerViewAdapter = AddRecyclerViewAdapter(images = arrayListOf())
         binding.add2Recyclerview.adapter = recyclerViewAdapter
@@ -448,6 +441,5 @@ class AddFragment2 : Fragment() {
 
     companion object {
         private const val PICK_MULTIPLE_IMAGES = 1
-        private const val CAPTURE_IMAGE = 2
     }
 }

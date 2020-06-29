@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ths.kariru.R
 import ths.kariru.adapters.SearchRecyclerViewAdapter
@@ -21,6 +23,7 @@ class SearchFragment : Fragment() {
 
     private lateinit var viewModel: SearchFragmentViewModel
     private lateinit var binding: FragmentSearchBinding
+    private lateinit var navController: NavController
 
     private var propertyList = ArrayList<Property>()
 
@@ -29,6 +32,8 @@ class SearchFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         viewModel = ViewModelProvider(this).get(SearchFragmentViewModel::class.java)
         binding.viewModel = viewModel
+
+        navController = findNavController()
 
         return binding.root
     }
@@ -54,7 +59,10 @@ class SearchFragment : Fragment() {
             val topSpacingDecoration = TopSpacingItemDecoration(10)
             addItemDecoration(topSpacingDecoration)
             adapter = SearchRecyclerViewAdapter(propertyList) {property ->
-                Timber.i("Search: ${property.propertyId}")
+                val action = SearchFragmentDirections.searchToSearch2(
+                    propertyItem = property
+                )
+                navController.navigate(action)
             }
         }
     }
