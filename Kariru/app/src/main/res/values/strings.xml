@@ -93,6 +93,14 @@
     <string name="baths">%s baths</string>
     <string name="month">month</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    SearchFragment2 strings-->
+    <string name="search2_neighborhood" translatable="false">Cluj-Napoca, %s</string>
+    <string name="search2_street" translatable="false">%s %s</string>
+    <string name="search2_block_name">Block name: %s</string>
+    <string name="search2_apartment_nr">Apartment nr: %s</string>
+    <string name="search2_floor">Floor: %s</string>
+    <string name="search2_room">Rooms: %s</string>
+    <string name="search2_bath">Baths: %s</string>
+    <string name="search2_balcony">Balconies: %s</string>
+    <string name="search2_surface">Surface: %s</string>
 </resources>

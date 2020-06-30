@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.fragment_search2.view.*
 
 import ths.kariru.R
 import ths.kariru.adapters.AddViewPagerAdapter
@@ -46,12 +47,15 @@ class SearchFragment2 : Fragment() {
 
     private fun bindData(property: Property) {
         binding.apply {
-            val neighborhood = getString(R.string.cluj_napoca, property.address.neighborhood)
-            val street = getString(R.string.street, property.address.street, property.address.streetNumber)
-            val room = getString(R.string.room, property.room)
-            val rooms = getString(R.string.rooms, property.room)
-            val bath = getString(R.string.bath, property.bath)
-            val baths = getString(R.string.baths, property.bath)
+            val neighborhood = getString(R.string.search2_neighborhood, property.address.neighborhood)
+            val street = getString(R.string.search2_street, property.address.street, property.address.streetNumber)
+            val blockName = getString(R.string.search2_block_name, property.address.blockName)
+            val apartmentNr = getString(R.string.search2_apartment_nr, property.address.apartmentNumber.toString())
+            val floor = getString(R.string.search2_floor, property.floor)
+            val room = getString(R.string.search2_room, property.room)
+            val bath = getString(R.string.search2_bath, property.bath)
+            val balcony = getString(R.string.search2_balcony, property.balcony)
+            val surface = getString(R.string.search2_surface, property.surface.toString())
 
 
             val adapter = AddViewPagerAdapter(property.imageList)
@@ -60,18 +64,14 @@ class SearchFragment2 : Fragment() {
 
             search2Neighborhood.text = neighborhood
             search2Street.text = street
-
-            if (property.room == "1") {
-                search2Room.text = room
-            } else {
-                search2Room.text = rooms
-            }
-            if (property.bath == "1") {
-                search2Bath.text = bath
-            } else {
-                search2Bath.text = baths
-            }
-            search2Surface.text = property.surface.toString()
+            search2BlockName.text = blockName
+            search2ApartmentNr.text = apartmentNr
+            search2Description.text = property.description
+            search2Floor.text = floor
+            search2Room.text = room
+            search2Bath.text = bath
+            search2Balcony.text = balcony
+            search2Surface.text = surface
         }
     }
 

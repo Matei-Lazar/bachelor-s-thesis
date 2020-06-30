@@ -32,7 +32,8 @@ class SettingsActivity : AppCompatActivity() {
                 .signOut(this)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(Intent(this, SplashActivity::class.java))
+                        finish()
                     } else {
                         Timber.i("Sign-out failed ${task.exception}")
                         Toast.makeText(this, "Sign-out failed", Toast.LENGTH_LONG).show()
@@ -48,7 +49,8 @@ class SettingsActivity : AppCompatActivity() {
                     authUI.delete(this)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                startActivity(Intent(this, MainActivity::class.java))
+                                startActivity(Intent(this, SplashActivity::class.java))
+                                finish()
                             } else {
                                 Timber.i("Delete account failed ${task.exception}")
                                 Toast.makeText(this, "Delete account failed", Toast.LENGTH_LONG).show()
@@ -77,7 +79,7 @@ class SettingsActivity : AppCompatActivity() {
                 .addOnCompleteListener { task ->
                     if (!task.isSuccessful) {
                         Timber.i("Failed to update display name ${task.exception}")
-                        Toast.makeText(this, "Name update failed", Toast.LENGTH_LONG).show()
+                        //Toast.makeText(this, "Name update failed", Toast.LENGTH_LONG).show()
                     }
                 }
         }

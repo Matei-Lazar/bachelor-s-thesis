@@ -32,7 +32,7 @@
                 android:id="@+id/search2_price"
                 android:layout_width="65dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="260dp"
+                android:layout_marginStart="254dp"
                 android:layout_marginTop="10dp"
                 android:text="123"
                 android:textAlignment="textEnd"
@@ -73,8 +73,8 @@
 
             <TextView
                 android:id="@+id/search2_neighborhood"
-                android:layout_width="290dp"
-                android:layout_height="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Cartier"
@@ -86,8 +86,8 @@
 
             <TextView
                 android:id="@+id/search2_street"
-                android:layout_width="286dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Strada"
@@ -100,8 +100,8 @@
 
             <TextView
                 android:id="@+id/search2_block_name"
-                android:layout_width="286dp"
-                android:layout_height="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Block name"
@@ -111,8 +111,8 @@
 
             <TextView
                 android:id="@+id/search2_apartment_nr"
-                android:layout_width="286dp"
-                android:layout_height="28dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Apartment nr"
@@ -134,7 +134,7 @@
             <TextView
                 android:id="@+id/search2_description"
                 android:layout_width="0dp"
-                android:layout_height="185dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
@@ -146,8 +146,8 @@
 
             <TextView
                 android:id="@+id/search2_floor"
-                android:layout_width="245dp"
-                android:layout_height="34dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="floor"
@@ -157,8 +157,8 @@
 
             <TextView
                 android:id="@+id/search2_room"
-                android:layout_width="242dp"
-                android:layout_height="27dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="room"
@@ -168,8 +168,8 @@
 
             <TextView
                 android:id="@+id/search2_bath"
-                android:layout_width="239dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="bath"
@@ -179,8 +179,8 @@
 
             <TextView
                 android:id="@+id/search2_balcony"
-                android:layout_width="243dp"
-                android:layout_height="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="balcony"
@@ -190,10 +190,11 @@
 
             <TextView
                 android:id="@+id/search2_surface"
-                android:layout_width="248dp"
-                android:layout_height="23dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:drawableEnd="@drawable/ic_square_meter"
                 android:text="surface"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
