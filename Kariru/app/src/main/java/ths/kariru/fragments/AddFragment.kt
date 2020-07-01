@@ -13,10 +13,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import kotlinx.android.synthetic.main.fragment_add.*
@@ -24,9 +26,11 @@ import ths.kariru.MainActivity
 import ths.kariru.MapsActivity
 import ths.kariru.R
 import ths.kariru.adapters.AddViewPagerAdapter
+import ths.kariru.adapters.SearchRecyclerViewAdapter
 import ths.kariru.databinding.FragmentAddBinding
 import ths.kariru.models.Address
 import ths.kariru.models.Property
+import ths.kariru.utils.TopSpacingItemDecoration
 import ths.kariru.viewmodels.AddFragmentViewModel
 import timber.log.Timber
 
@@ -34,10 +38,13 @@ class AddFragment : Fragment() {
 
     private lateinit var viewModel: AddFragmentViewModel
     private lateinit var navController: NavController
+    private lateinit var binding: FragmentAddBinding
+
+    private var propertyList = ArrayList<Property>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val binding: FragmentAddBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_add, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_add, container, false)
 
         binding.lifecycleOwner = this
         viewModel = ViewModelProvider(this).get(AddFragmentViewModel::class.java)
@@ -51,6 +58,35 @@ class AddFragment : Fragment() {
         navController = findNavController()
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        initRecyclerView()
+
+        viewModel.fetchProperties()
+
+        viewModel.properties.observe(viewLifecycleOwner, Observer {
+            propertyList.removeAll(propertyList)
+            propertyList.addAll(it)
+            binding.addRecyclerview.adapter!!.notifyDataSetChanged()
+        })
+    }
+
+    private fun initRecyclerView() {
+        binding.addRecyclerview.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(activity)
+            val topSpacingDecoration = TopSpacingItemDecoration(10)
+            addItemDecoration(topSpacingDecoration)
+            adapter = SearchRecyclerViewAdapter(propertyList) {property ->
+                val action = AddFragmentDirections.addToEdit(
+                    propertyItem = property
+                )
+                navController.navigate(action)
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

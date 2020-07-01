@@ -1,5 +1,7 @@
 package ths.kariru.adapters
 
+
+import android.content.Context
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -13,26 +15,29 @@ import kotlinx.coroutines.withContext
 import ths.kariru.MainActivity
 import ths.kariru.R
 
-class AddRecyclerViewAdapter(
-    val images: MutableList<Uri>
-) : RecyclerView.Adapter<AddRecyclerViewAdapter.AddRecyclerViewViewHolder>() {
+class EditRecyclerViewAdapter(
+    val context: Context,
+    val images: MutableList<String>
+) : RecyclerView.Adapter<EditRecyclerViewAdapter.EditRecyclerViewViewHolder>() {
 
     private val limit = 3
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddRecyclerViewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EditRecyclerViewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.add_view_pager,
             parent, false)
-        return AddRecyclerViewViewHolder(view)
+        return EditRecyclerViewViewHolder(view)
     }
 
     override fun getItemCount() = images.size
 
-    override fun onBindViewHolder(holder: AddRecyclerViewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: EditRecyclerViewViewHolder, position: Int) {
         val currentImage = images[position]
-        holder.imageView.setImageURI(currentImage)
+        Glide.with(context)
+            .load(currentImage)
+            .into(holder.imageView)
     }
 
-    inner class AddRecyclerViewViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class EditRecyclerViewViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.add_image_view_pager
     }
 }

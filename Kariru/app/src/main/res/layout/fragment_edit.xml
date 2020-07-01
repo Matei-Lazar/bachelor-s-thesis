@@ -3,7 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AddFragment2">
+    tools:context=".EditFragment">
 
     <data>
 
@@ -26,7 +26,7 @@
             android:focusableInTouchMode="true" >
 
             <TextView
-                android:id="@+id/add2_latitude"
+                android:id="@+id/edit_latitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/add2_longitude"
+                android:id="@+id/edit_longitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="gone"
@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/add2_upload_property"
+                android:id="@+id/edit_upload_property"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/add2_address"
+                android:id="@+id/edit_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -65,10 +65,10 @@
                 android:text="Address"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_upload_property" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_upload_property" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_street_text"
+                android:id="@+id/edit_street_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -77,12 +77,12 @@
                 app:counterMaxLength="40"
                 app:errorEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_address"
+                app:layout_constraintTop_toBottomOf="@+id/edit_address"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_street"
+                    android:id="@+id/edit_street"
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -92,7 +92,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_streetNr_text"
+                android:id="@+id/edit_streetNr_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -100,13 +100,13 @@
                 app:counterMaxLength="4"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_street_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_address"
+                app:layout_constraintStart_toEndOf="@+id/edit_street_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_address"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_streetNr"
+                    android:id="@+id/edit_streetNr"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -116,7 +116,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_blockName_text"
+                android:id="@+id/edit_blockName_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -125,12 +125,12 @@
                 app:counterMaxLength="20"
                 app:errorEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_street_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_street_text"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_blockName"
+                    android:id="@+id/edit_blockName"
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -140,7 +140,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_apartmentNr_text"
+                android:id="@+id/edit_apartmentNr_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -148,13 +148,13 @@
                 app:counterMaxLength="3"
                 app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_blockName_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_street_text"
+                app:layout_constraintStart_toEndOf="@+id/edit_blockName_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_street_text"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_apartmentNr"
+                    android:id="@+id/edit_apartmentNr"
                     android:layout_width="125dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -165,7 +165,7 @@
 
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                android:id="@+id/add2_neighborhood_text"
+                android:id="@+id/edit_neighborhood_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -177,10 +177,10 @@
                 android:inputType="text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_blockName_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_blockName_text" />
 
             <TextView
-                android:id="@+id/add2_upload_photos_text"
+                android:id="@+id/edit_upload_photos_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -188,39 +188,39 @@
                 android:text="Upload photos"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_neighborhood_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_neighborhood_text" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/add2_recyclerview"
+                android:id="@+id/edit_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_upload_photos_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_upload_photos_text" />
 
             <Button
-                android:id="@+id/add2_upload_button"
+                android:id="@+id/edit_upload_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Upload"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_recyclerview" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_recyclerview" />
 
             <Button
-                android:id="@+id/add2_delete_button"
+                android:id="@+id/edit_delete_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:text="Delete"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_recyclerview" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_recyclerview" />
 
             <TextView
-                android:id="@+id/add2_details_text"
+                android:id="@+id/edit_details_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -228,10 +228,10 @@
                 android:text="Details"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_upload_button" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_upload_button" />
 
             <TextView
-                android:id="@+id/add2_floor_text"
+                android:id="@+id/edit_floor_text"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -239,21 +239,21 @@
                 android:text="Floor"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_details_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_details_text" />
 
             <Spinner
-                android:id="@+id/add2_floor_spinner"
+                android:id="@+id/edit_floor_spinner"
                 android:layout_width="213dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_floor_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_details_text" />
+                app:layout_constraintStart_toEndOf="@+id/edit_floor_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_details_text" />
 
             <TextView
-                android:id="@+id/add2_rooms_text"
+                android:id="@+id/edit_rooms_text"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -261,21 +261,21 @@
                 android:text="Rooms"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_floor_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_floor_text" />
 
             <Spinner
-                android:id="@+id/add2_rooms_spinner"
+                android:id="@+id/edit_rooms_spinner"
                 android:layout_width="213dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_rooms_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_floor_text" />
+                app:layout_constraintStart_toEndOf="@+id/edit_rooms_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_floor_text" />
 
             <TextView
-                android:id="@+id/add2_baths_text"
+                android:id="@+id/edit_baths_text"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -283,21 +283,21 @@
                 android:text="Baths"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_rooms_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_rooms_text" />
 
             <Spinner
-                android:id="@+id/add2_baths_spinner"
+                android:id="@+id/edit_baths_spinner"
                 android:layout_width="213dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_baths_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_rooms_text" />
+                app:layout_constraintStart_toEndOf="@+id/edit_baths_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_rooms_text" />
 
             <TextView
-                android:id="@+id/add2_balconies_text"
+                android:id="@+id/edit_balconies_text"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -305,21 +305,21 @@
                 android:text="Balconies"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_baths_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_baths_text" />
 
             <Spinner
-                android:id="@+id/add2_balconies_spinner"
+                android:id="@+id/edit_balconies_spinner"
                 android:layout_width="213dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add2_balconies_text"
-                app:layout_constraintTop_toBottomOf="@+id/add2_baths_text" />
+                app:layout_constraintStart_toEndOf="@+id/edit_balconies_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_baths_text" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_surface_text"
+                android:id="@+id/edit_surface_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -327,12 +327,12 @@
                 app:counterMaxLength="5"
                 app:errorEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_description_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_description_text"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_surface"
+                    android:id="@+id/edit_surface"
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -343,7 +343,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_description_text"
+                android:id="@+id/edit_description_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -353,12 +353,12 @@
                 app:counterMaxLength="200"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_balconies_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_balconies_text"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_description"
+                    android:id="@+id/edit_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -368,19 +368,19 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/add2_price_text"
+                android:id="@+id/edit_price_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 app:errorEnabled="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_surface_text"
+                app:layout_constraintTop_toBottomOf="@+id/edit_surface_text"
                 android:clickable="true"
                 android:focusable="true">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add2_price"
+                    android:id="@+id/edit_price"
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
                     android:background="#fff"
@@ -391,14 +391,14 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/add2_save_button"
+                android:id="@+id/edit_save_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="save"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/add2_price_text" />
+                app:layout_constraintTop_toBottomOf="@+id/edit_price_text" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>

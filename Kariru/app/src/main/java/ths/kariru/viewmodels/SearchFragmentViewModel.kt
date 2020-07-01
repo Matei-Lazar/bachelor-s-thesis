@@ -37,4 +37,8 @@ class SearchFragmentViewModel : ViewModel() {
             }
         }
     }
+
+    internal fun uploadChatsToFirestore(currentUserId: String, otherUserId: String) {
+
+    }
 }

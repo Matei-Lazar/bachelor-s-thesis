@@ -26,35 +26,54 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/search2_postedby_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Posted by:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+
+            <TextView
+                android:id="@+id/search2_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="User"
+                android:textSize="20sp"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_postedby_text" />
 
             <TextView
                 android:id="@+id/search2_price"
                 android:layout_width="65dp"
                 android:layout_height="28dp"
-                android:layout_marginStart="254dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="95dp"
                 android:text="123"
                 android:textAlignment="textEnd"
                 android:textColor="@color/common_google_signin_btn_text_dark_focused"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search2_postedby_text" />
 
             <ImageView
                 android:id="@+id/search2_euro_icon"
                 android:layout_width="28dp"
                 android:layout_height="30dp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintStart_toEndOf="@+id/search2_price"
-                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager"
+                app:layout_constraintTop_toBottomOf="@+id/search2_postedby_text"
                 app:srcCompat="@drawable/ic_euroro" />
 
             <TextView
                 android:id="@+id/search2_month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="26dp"
                 android:text="month"
                 android:textColor="@color/quantum_black_100"
                 app:layout_constraintStart_toEndOf="@+id/search2_euro_icon"
@@ -69,7 +88,7 @@
                 android:text="Address"
                 android:textSize="26sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/search2_view_pager" />
+                app:layout_constraintTop_toBottomOf="@+id/search2_user" />
 
             <TextView
                 android:id="@+id/search2_neighborhood"
@@ -79,7 +98,7 @@
                 android:layout_marginTop="16dp"
                 android:text="Cartier"
                 android:textAlignment="textStart"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/colorPrimary"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search2_address_text_field" />
@@ -92,7 +111,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Strada"
                 android:textAlignment="textStart"
-                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColorHighlight="@color/colorAccent"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/search2_neighborhood" />

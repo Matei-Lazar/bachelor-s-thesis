@@ -30,10 +30,6 @@ android {
         }
     }
 
-//    kotlinOptions {
-//        jvmTarget = JavaVersion.VERSION_1_8.toString()
-//    }
-
 }
 
 dependencies {
@@ -60,7 +56,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage:19.1.1'
     implementation 'com.google.firebase:firebase-storage-ktx:19.1.1'
     implementation 'com.firebaseui:firebase-ui-auth:6.2.1'
-    implementation "com.firebaseui:firebase-ui-firestore:3.0.0"
+    implementation 'com.firebaseui:firebase-ui-firestore:3.0.0'
+    implementation 'com.firebaseui:firebase-ui-storage:6.2.1'
 
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
@@ -99,4 +96,9 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.11.0") {
         exclude group: "com.android.support"
     }
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // Groupie
+    implementation 'com.xwray:groupie:2.8.0'
+    implementation 'com.xwray:groupie-kotlin-android-extensions:2.8.0'
 }
