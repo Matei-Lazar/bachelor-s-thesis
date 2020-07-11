@@ -37,6 +37,7 @@ class AddFragment2 : Fragment() {
     private lateinit var editTextAdapter: ArrayAdapter<String>
 
     private var images: MutableList<Uri> = arrayListOf()
+    private var imageLimit = 5
     private lateinit var floor: String
     private lateinit var rooms: String
     private lateinit var baths: String
@@ -420,7 +421,8 @@ class AddFragment2 : Fragment() {
                 if (clipData != null) { // handle multiple images
                     for (i in 0 until clipData.itemCount) {
                         val uri = clipData.getItemAt(i).uri
-                        images.add(uri)
+                        if (images.size < imageLimit)
+                            images.add(uri)
                     }
                 } else {
                     data?.data.let {

@@ -11,10 +11,10 @@
         android:title="Add"
         android:icon="@drawable/ic_add"/>
 
-    <item
-        android:id="@+id/destination_chat"
-        android:title="Chat"
-        android:icon="@drawable/ic_chat"/>
+<!--    <item-->
+<!--        android:id="@+id/destination_chat"-->
+<!--        android:title="Chat"-->
+<!--        android:icon="@drawable/ic_chat"/>-->
 
     <item
         android:id="@+id/destination_profile"

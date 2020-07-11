@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.add_view_pager.view.*
 import ths.kariru.R
+import ths.kariru.utils.GlideApp
 
 class AddViewPagerAdapter (
     private val images: MutableList<String>
@@ -30,10 +30,9 @@ class AddViewPagerAdapter (
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
 
-        Glide.with(holder.itemView)
+        GlideApp.with(holder.itemView)
             .applyDefaultRequestOptions(requestOptions)
             .load(currentImage)
             .into(holder.itemView.add_image_view_pager)
-        //holder.itemView.add_image_view_pager.setImageURI(currentImage.toUri())
     }
 }

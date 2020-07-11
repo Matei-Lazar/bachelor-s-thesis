@@ -17,8 +17,6 @@ class AddRecyclerViewAdapter(
     val images: MutableList<Uri>
 ) : RecyclerView.Adapter<AddRecyclerViewAdapter.AddRecyclerViewViewHolder>() {
 
-    private val limit = 3
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddRecyclerViewViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.add_view_pager,
             parent, false)

@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.fragment_edit.*
 
 import ths.kariru.R
 import ths.kariru.adapters.AddRecyclerViewAdapter
-import ths.kariru.adapters.AddViewPagerAdapter
 import ths.kariru.adapters.EditRecyclerViewAdapter
 import ths.kariru.databinding.FragmentEditBinding
 import ths.kariru.models.Address
@@ -51,6 +50,7 @@ class EditFragment : Fragment() {
     private var images: MutableList<Uri> = arrayListOf()
     private val user = FirebaseAuth.getInstance().currentUser
     private var imagesHaveBeenUpdated = false
+    private var refreshOnResume = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -280,6 +280,15 @@ class EditFragment : Fragment() {
 
 //        val map = mutableMapOf<String, Any>()
 //        map
+        if (!imagesHaveBeenUpdated) {
+            val imageListUri = mutableListOf<Uri>()
+            val imageList = property.imageList
+            imageList.forEach {
+                imageListUri.add(Uri.parse(it))
+            }
+            images = imageListUri
+        }
+
 
         viewModel.updatePropertyToFirestore(property, images, imagesHaveBeenUpdated)
     }
@@ -407,13 +416,17 @@ class EditFragment : Fragment() {
                 }
             }
             imagesHaveBeenUpdated = true
+            refreshOnResume = true
         }
     }
 
     override fun onResume() {
         super.onResume()
-        if (imagesHaveBeenUpdated)
-            binding.editRecyclerview.adapter = AddRecyclerViewAdapter(images)
+            if (refreshOnResume){
+                binding.editRecyclerview.adapter = AddRecyclerViewAdapter(images)
+                refreshOnResume = false
+            }
+
     }
 
     companion object {

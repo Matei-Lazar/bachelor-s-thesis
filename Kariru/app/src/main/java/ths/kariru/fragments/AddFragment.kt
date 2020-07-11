@@ -1,38 +1,25 @@
 package ths.kariru.fragments
 
-import android.app.Activity
 import android.app.Activity.RESULT_OK
-import android.app.Dialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.gms.common.ConnectionResult
-import com.google.android.gms.common.GoogleApiAvailability
-import kotlinx.android.synthetic.main.fragment_add.*
-import ths.kariru.MainActivity
-import ths.kariru.MapsActivity
+import ths.kariru.utils.MapsActivity
 import ths.kariru.R
-import ths.kariru.adapters.AddViewPagerAdapter
 import ths.kariru.adapters.SearchRecyclerViewAdapter
 import ths.kariru.databinding.FragmentAddBinding
-import ths.kariru.models.Address
 import ths.kariru.models.Property
 import ths.kariru.utils.TopSpacingItemDecoration
 import ths.kariru.viewmodels.AddFragmentViewModel
-import timber.log.Timber
 
 class AddFragment : Fragment() {
 

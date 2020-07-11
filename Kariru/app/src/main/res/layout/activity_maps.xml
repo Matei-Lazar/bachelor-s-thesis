@@ -24,7 +24,7 @@
         android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
         android:layout_width="409dp"
         android:layout_height="39dp"
-
+        android:fragmentEnterTransition="@anim/nav_default_pop_enter_anim"
         android:layout_marginTop="8dp"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
@@ -41,7 +41,7 @@
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
         map:layout_constraintVertical_bias="1.0"
-        tools:context=".MapsActivity" />
+        tools:context=".utils.MapsActivity" />
 
     <Button
         android:id="@+id/map_next_button"

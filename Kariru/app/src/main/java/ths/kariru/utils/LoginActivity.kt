@@ -24,17 +24,17 @@ class LoginActivity : AppCompatActivity() {
     private fun createLoginUI() {
         val providers = arrayListOf(
             AuthUI.IdpConfig.EmailBuilder().build(),
-            AuthUI.IdpConfig.GoogleBuilder().build(),
-            AuthUI.IdpConfig.FacebookBuilder().build()
+            AuthUI.IdpConfig.GoogleBuilder().build()
+            //AuthUI.IdpConfig.FacebookBuilder().build()
         )
 
         startActivityForResult(
             AuthUI.getInstance()
                 .createSignInIntentBuilder()
                 .setAvailableProviders(providers)
-                .setLogo(R.drawable.ic_login_pic)
                 .setIsSmartLockEnabled(false)
                 .setTheme(R.style.SigninTheme)
+                .setLogo(R.drawable.ic_logo_text2)
                 .build(), RC_SIGN_IN
         )
     }

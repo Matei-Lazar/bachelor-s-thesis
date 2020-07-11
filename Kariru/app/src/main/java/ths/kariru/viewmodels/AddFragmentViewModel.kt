@@ -61,7 +61,8 @@ class AddFragmentViewModel : ViewModel() {
             withContext(Dispatchers.Main) {
                 Timber.i("Firebase: property saved in firestore")
             }
-            uploadImagesToStorage2(property, images)
+            if (imagesHaveBeenUpdated)
+                uploadImagesToStorage2(property, images)
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Timber.i("Firebase: failed to save property: $e")
