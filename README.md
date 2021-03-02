@@ -1,2 +1,2 @@
 # licenta-lazar-matei
-Acest repository contine lucrarea mea de licenta.
+This repo contains an incomplete version of my bachelor's thesis. It is also archived.
