@@ -2,9 +2,7 @@
     <string name="app_name">Kariru</string>
 
     <!--    Login and Google maps-->
-    <string name="facebook_application_id" translatable="false">271614887514389</string>
-    <string name="facebook_login_protocol_scheme" translatable="false">fb271614887514389</string>
-    <string name="places_api_key">AIzaSyDKZHboPTdqsbwovrqr278YZnhBWWCprA4</string>
+
    
     <string name="title_activity_maps">Map</string>
 
